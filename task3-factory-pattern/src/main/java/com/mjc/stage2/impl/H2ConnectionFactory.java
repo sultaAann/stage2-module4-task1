@@ -20,7 +20,7 @@ public class H2ConnectionFactory implements ConnectionFactory {
     @Override
     public Connection createConnection() throws SQLException {
         Properties props = new Properties();
-        try (FileInputStream fis = new FileInputStream("task3-factory-pattern/src/main/resources/h2database.properties")) {
+        try (FileInputStream fis = new FileInputStream("./task3-factory-pattern/src/main/resources/h2database.properties")) {
             props.load(fis);
             url = props.getProperty("db_url");
         } catch (IOException e) {
