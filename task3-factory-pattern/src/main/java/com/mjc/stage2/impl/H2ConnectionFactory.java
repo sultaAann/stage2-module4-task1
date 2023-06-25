@@ -11,13 +11,10 @@ import java.util.Properties;
 
 public class H2ConnectionFactory implements ConnectionFactory {
     String url;
-    String user;
-    String password;
 
-    public H2ConnectionFactory(String url, String user, String password) {
-        this.url = url;
-        this.user = user;
-        this.password = password;
+
+    public H2ConnectionFactory() {
+
     }
 
     @Override
@@ -25,6 +22,7 @@ public class H2ConnectionFactory implements ConnectionFactory {
         Properties props = new Properties();
         try (FileInputStream fis = new FileInputStream("task3-factory-pattern/src/main/resources/h2database.properties")) {
             props.load(fis);
+            url = props.getProperty("db_url");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
