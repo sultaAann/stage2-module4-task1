@@ -1,12 +1,12 @@
 package com.mjc.stage2;
 
 public class ThreadSafeSingleton {
-    private final ThreadSafeSingleton THREADSAFESINGLETON = new ThreadSafeSingleton();
+    private static final ThreadSafeSingleton THREADSAFESINGLETON = new ThreadSafeSingleton();
 
     private ThreadSafeSingleton() {
     }
 
-    public ThreadSafeSingleton getInstance() {
+    public static ThreadSafeSingleton getInstance() {
         return THREADSAFESINGLETON;
     }
 }
